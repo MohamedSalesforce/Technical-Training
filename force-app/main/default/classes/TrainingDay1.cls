@@ -77,4 +77,43 @@ public with sharing class TrainingDay1 {
             insert newleadrecord;
             return newleadrecord;
         }
+
+        public static void createAccountWithContact() {
+            // Create an Account
+            Account newAccount = new Account();
+            newAccount.Name = 'Retro Games';
+            newAccount.Description = 'Game Account';
+            // Set other desired Account fields
+    
+            // Create a Contact
+            Contact newContact = new Contact();
+            newContact.FirstName = 'Ethen';
+            newContact.LastName = 'Hunt';
+            newContact.Email = 'ethenhunt@retro.com';
+            // Set other desired Contact fields
+    
+            // Associate the Contact with the Account
+            newContact.AccountId = newAccount.Id;
+    
+            // Insert the Account and Contact
+            insert newAccount;
+            insert newContact;
+        }
+
+        public static List<Lead> createLeadsInBulk() {
+            List<Lead> leadsToCreate = new List<Lead>();
+            
+            for(Integer i = 0; i < 10; i++) {
+                Lead lead = new Lead(
+                    FirstName = 'Ethen', // Default first name
+                    LastName = 'Hunt', // Default last name
+                    Company = '4i Apps' // Default company name
+                );
+                leadsToCreate.add(lead);
+            }
+            
+            insert leadsToCreate;
+            return leadsToCreate;
+        }
+
 }
