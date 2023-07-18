@@ -30,7 +30,7 @@ public with sharing class TrainingDay1 {
                     String orignalName = 'Mohamed Samsudeen';
                     String reversedName = orignalName.reverse();
                     System.debug(reversedName);
-              }
+                }
 
 
              public static void getPrime(){
@@ -48,4 +48,33 @@ public with sharing class TrainingDay1 {
                         }                       
                     }
             }
+
+        public static lead createLeadRecord(){
+            lead newlead = new lead();
+            newlead.Lastname = 'raja'; 
+            newlead.Email = 'raja@gmail.com';
+            newlead.Company = '4i Apps';
+            insert newlead;
+            return newlead;
+        }
+
+        public static lead birthDayValidation(String lastName, String email, Date dateOfBirth, String companyName) {
+            if (dateOfBirth == null) {
+                Date myDate = Date.newInstance(1990, 1, 1);
+                dateOfBirth = myDate;
+            }
+            Lead leadRecordToInsert = new Lead();
+            leadRecordToInsert.LastName = lastName;
+            leadRecordToInsert.Email = email;
+            leadRecordToInsert.DOB__c = dateOfBirth; 
+            leadRecordToInsert.Company = companyName;
+            insert leadRecordToInsert;
+            return leadRecordToInsert;
+        }
+        
+        public static lead createnewlead(String lastname, String email, String company){
+            lead newleadrecord = new lead(Lastname = lastname, Email = email, Company = company);
+            insert newleadrecord;
+            return newleadrecord;
+        }
 }
