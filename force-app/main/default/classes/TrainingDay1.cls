@@ -107,7 +107,6 @@ public with sharing class TrainingDay1 {
                 );
                 leadsToCreate.add(lead);
             }
-            
             insert leadsToCreate;
             return leadsToCreate;
         }
