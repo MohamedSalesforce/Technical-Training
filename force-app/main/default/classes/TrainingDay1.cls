@@ -81,33 +81,33 @@ public with sharing class TrainingDay1 {
         public static void createAccountWithContact() {
             // Create an Account
             Account newAccount = new Account();
-            newAccount.Name = 'Retro Games';
-            newAccount.Description = 'Game Account';
+            newAccount.Name = 'Retro Gam';
+            newAccount.Description = 'Game Accout';
             // Set other desired Account fields
-    
+            insert newAccount;
             // Create a Contact
             Contact newContact = new Contact();
-            newContact.FirstName = 'Ethen';
-            newContact.LastName = 'Hunt';
-            newContact.Email = 'ethenhunt@retro.com';
+            newContact.FirstName = 'Ethe';
+            newContact.LastName = 'Hun';
+            newContact.Email = 'ethenht@retro.com';
             // Set other desired Contact fields
     
             // Associate the Contact with the Account
             newContact.AccountId = newAccount.Id;
     
             // Insert the Account and Contact
-            insert newAccount;
             insert newContact;
+            System.debug('created successfully!');
         }
 
-        public static List<Lead> createLeadsInBulk() {
+        public static List<Lead> createLeadsInBulk(integer a) {
             List<Lead> leadsToCreate = new List<Lead>();
             
-            for(Integer i = 0; i < 10; i++) {
+            for(Integer i = 0; i < a; i++) {
                 Lead lead = new Lead(
-                    FirstName = 'Ethen', // Default first name
-                    LastName = 'Hunt', // Default last name
-                    Company = '4i Apps' // Default company name
+                    FirstName = 'Test', // Default first name
+                    LastName = 'Test'+i, // Default last name
+                    Company = '4i Apps' + i // Default company name
                 );
                 leadsToCreate.add(lead);
             }
