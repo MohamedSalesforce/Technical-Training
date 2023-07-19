@@ -83,19 +83,15 @@ public with sharing class TrainingDay1 {
             Account newAccount = new Account();
             newAccount.Name = 'Retro Gam';
             newAccount.Description = 'Game Accout';
-            // Set other desired Account fields
             insert newAccount;
-            // Create a Contact
+            // Create an contact
             Contact newContact = new Contact();
             newContact.FirstName = 'Ethe';
             newContact.LastName = 'Hun';
             newContact.Email = 'ethenht@retro.com';
-            // Set other desired Contact fields
-    
-            // Associate the Contact with the Account
+            
             newContact.AccountId = newAccount.Id;
     
-            // Insert the Account and Contact
             insert newContact;
             System.debug('created successfully!');
         }
@@ -105,9 +101,9 @@ public with sharing class TrainingDay1 {
             
             for(Integer i = 0; i < a; i++) {
                 Lead lead = new Lead(
-                    FirstName = 'Test', // Default first name
-                    LastName = 'Test'+i, // Default last name
-                    Company = '4i Apps' + i // Default company name
+                    FirstName = 'Test', 
+                    LastName = 'Test'+i, 
+                    Company = '4i Apps' + i 
                 );
                 leadsToCreate.add(lead);
             }
@@ -115,5 +111,4 @@ public with sharing class TrainingDay1 {
             insert leadsToCreate;
             return leadsToCreate;
         }
-
 }
