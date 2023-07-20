@@ -1,15 +1,13 @@
 public class DMLClass implements LogManager{
-    public void performDML() {
-        // Perform DML operations here
-        // ...
-        
-        // After DML operation, call the createLog method
-        createLog('DML operation executed successfully');
-    }
     
     public void createLog(String saveResult) {
-        DML_Log__c dmlLog = new DML_Log__c();
-        dmlLog.SaveResult__c = saveResult;
-        insert dmlLog;
+        Contact dmlLog = new Contact();
+        //dmlLog.SaveResult__c = saveResult;
+        try {
+            insert dmlLog;
+        }
+        catch(exception e) {
+            e.getDmlMessage();
+        }
     }
 }
