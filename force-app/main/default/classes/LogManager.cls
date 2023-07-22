@@ -1,3 +1,4 @@
-public interface LogManager {
-    void createLog(String saveResult);
+public interface LogManager
+{
+    void createLog();
 }
