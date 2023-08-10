@@ -4,7 +4,7 @@ trigger LeadNameChangeTrigger on Lead (after update) {
     for (Lead newLead : Trigger.new) {
         Lead oldLead = (Lead) Trigger.oldMap.get(newLead.Id);
 
-        if (newLead.Name != oldLead.Name) {
+        if (oldLead != null && newLead.Name != oldLead.Name) {
             updatedLeads.add(newLead);
         }
     }

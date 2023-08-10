@@ -1,5 +1,5 @@
-public class LeadNameChangeLogger implements Queueable{
-    public List<Lead> updatedLeads;
+public with sharing class LeadNameChangeLogger implements Queueable{
+    List<Lead> updatedLeads;
     
     public LeadNameChangeLogger(List<Lead> updatedLeads) {
         this.updatedLeads = updatedLeads;
