@@ -1,4 +1,4 @@
-public with sharing class TrainingDay1 {
+deplpublic with sharing class TrainingDay1 {
         
         public static void Calculation(){
             for (Integer i = 1; i <= 100; i++) {

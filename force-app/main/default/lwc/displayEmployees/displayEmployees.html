@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Contact Us Form">>
+        <div class="slds-m-left_small">
+            <form>
+                <Lightning-input type="text" label="First Name" onchange={onFormDataChange} name="firstName"></Lightning-input>
+                <Lightning-input type="text" label="Last Name" onchange={onFormDataChange} name="lastName"></Lightning-input> 
+                <Lightning-input type="email" label="email" onchange={onFormDataChange} name="email"></Lightning-input>
+                <Lightning-input type="text" label="phone" onchange={onFormDataChange} name="phone"></Lightning-input>
+                <lightning-button variant="brand" label="Submit" title="Primary action" onclick={handleClick} class="slds-m-left_small"></lightning-button>
+            </form>
+        </div>
+        </lightning-card>
+</template>

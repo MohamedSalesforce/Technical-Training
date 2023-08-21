@@ -1,0 +1,22 @@
+<template>
+    <div class="calculator">
+        <div class="input-box">
+            <lightning-input type="text" class="input-field" value={displayText} disabled></lightning-input></div>
+        </div>
+        <div class="buttons">
+            <div class="numbers">
+                <template for:each={numbers} for:item="number">
+                    <lightning-button key={number} onclick={handleNumberClick} data-number={number}>{number}</lightning-button>
+                </template>
+            </div>
+            <div class="operations">
+                <lightning-button onclick={handleOperationClick} data-operation="+">+</lightning-button>
+                <lightning-button onclick={handleOperationClick} data-operation="-">-</lightning-button>
+                <lightning-button onclick={handleOperationClick} data-operation="*">*</lightning-button>
+                <lightning-button onclick={handleOperationClick} data-operation="/">/</lightning-button>
+                <lightning-button onclick={handleClearClick}>C</lightning-button>
+                <lightning-button onclick={handleCalculateClick}>=</lightning-button>
+            </div>
+        </div>
+    </div>
+</template>
