@@ -1,34 +1,59 @@
+/* Add this CSS code to your component's style section */
+
+/* Calculator Card */
 .calculator {
-    display: inline-block;
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
-.input-box {
-    margin-bottom: 10px;
+/* Display */
+.display {
+    margin-bottom: 15px;
+    text-align: right;
 }
 
-.input-field {
+.display input {
     width: 100%;
-    padding: 5px;
+    padding: 10px;
     font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Buttons */
 .buttons {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
 }
 
-.numbers {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 5px;
+/* Button Styles */
+lightning-button {
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: #fff;
+    transition: background-color 0.2s ease-in-out;
 }
 
-.operations {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 5px;
+lightning-button:hover {
+    background-color: #2980b9;
+}
+
+/* AC Button Style */
+lightning-button[value="AC"] {
+    background-color: #e74c3c;
+}
+
+lightning-button[value="AC"]:hover {
+    background-color: #c0392b;
 }
