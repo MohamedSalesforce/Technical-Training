@@ -8,6 +8,5 @@ trigger sendEmailToContact on Contact (after insert) {
         email.setSaveAsActivity(false);
         emailList.add(email);
     }
-    
     Messaging.sendEmail(emailList);
 }

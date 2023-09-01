@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="ParentComponent">
+        <div>
+            <lightning-formatted-text value={contactName}></lightning-formatted-text>
+            <lightning-formatted-text value={contactPhone}></lightning-formatted-text>
+        </div>
+        <div>
+            <template for:each={contactList} for:item="contactItem">
+                <!-- {contactItem.Name}-{contactItem.Phone} -->
+                <c-child-display oncontactinvoke={captureContactInformation} contact-name={contactItem.Name} contact-phone={contactItem.phone} key={contactItem.Id}>
+                </c-child-display>        
+            </template>
+        </div>
+    </lightning-card>
+
+</template>
