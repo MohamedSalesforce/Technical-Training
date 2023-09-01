@@ -1,0 +1,12 @@
+<template>
+    <div class="contact_Container">
+        <template for:each={contactList} for:item="contactFetch">
+            <lightning-button varient="brand" label={contactList.Name} onclick={handleClick} key={contactList.Id}></lightning-button>
+        </template>
+    </div>
+    <div>
+        <template >
+
+        </template>
+    </div>
+</template>

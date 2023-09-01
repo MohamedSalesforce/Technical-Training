@@ -1,0 +1,7 @@
+<template>
+    <!--{returngetContact}-->
+    <template for:each =(fetchListOfContacts) for:item="contactDetail">
+    <c-employee-Details employee-name={contactDetail.Name} key={contactDetail.Id}></c-employee-Details>
+    <!--<c-employee-Details employee-name="Yokesh"></c-employee-Details>-->
+    </template>
+</template>

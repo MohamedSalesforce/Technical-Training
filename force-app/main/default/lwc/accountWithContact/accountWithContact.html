@@ -1,0 +1,26 @@
+<template>
+    <lightning-card title="Accounts with Contacts">
+        <!--<template if:true={accountsWithContacts}>-->
+            <ul>
+            <template for:each={accountsWithContacts} for:item="account">
+                <li key={account.Id}>
+                <lightning-input value={account.Name} label="Account Name"></lightning-input>
+                <ul>
+                <template for:each={account.Contacts} for:item="contact">
+                    <li key={contact.Id}>
+                        <lightning-input value={contact.FirstName} label="First Name"></lightning-input> 
+                        <lightning-input value={contact.LastName} label="Last Name"></lightning-input>
+                        <lightning-input value={contact.Email} label="Email"></lightning-input> 
+                        <lightning-input value={contact.Phone} label="Phone"></lightning-input>
+                    </li>
+                </template>
+                </ul>
+                </li>
+            </template>
+            </ul>
+        <!-- </template>
+        <template if:false={accountsWithContacts}>
+            No accounts with contacts found.
+        </template> -->
+    </lightning-card>
+</template>

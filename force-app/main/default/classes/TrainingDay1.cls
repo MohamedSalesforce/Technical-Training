@@ -1,4 +1,4 @@
-public with sharing class TrainingDay1 {
+deplpublic with sharing class TrainingDay1 {
         
         public static void Calculation(){
             for (Integer i = 1; i <= 100; i++) {
@@ -30,5 +30,84 @@ public with sharing class TrainingDay1 {
                     String orignalName = 'Mohamed Samsudeen';
                     String reversedName = orignalName.reverse();
                     System.debug(reversedName);
-              }
+                }
+
+
+             public static void getPrime(){
+                    integer x=0;
+                    for(x=0;x<=100;x++){
+                        integer count=0;
+                        integer y=0;
+                        for( y=x; y>=1;y--){
+                            if(math.mod(x,y)==0 ){
+                                count++;
+                            }
+                        }
+                        if(count==2 || count==1){
+                            system.debug(x);                  
+                        }                       
+                    }
             }
+
+        public static lead createLeadRecord(){
+            lead newlead = new lead();
+            newlead.Lastname = 'raja'; 
+            newlead.Email = 'raja@gmail.com';
+            newlead.Company = '4i Apps';
+            insert newlead;
+            return newlead;
+        }
+
+        public static lead birthDayValidation(String lastName, String email, Date dateOfBirth, String companyName) {
+            if (dateOfBirth == null) {
+                Date myDate = Date.newInstance(1990, 1, 1);
+                dateOfBirth = myDate;
+            }
+            Lead leadRecordToInsert = new Lead();
+            leadRecordToInsert.LastName = lastName;
+            leadRecordToInsert.Email = email;
+            leadRecordToInsert.DOB__c = dateOfBirth; 
+            leadRecordToInsert.Company = companyName;
+            insert leadRecordToInsert;
+            return leadRecordToInsert;
+        }
+        
+        public static lead createnewlead(String lastname, String email, String company){
+            lead newleadrecord = new lead(Lastname = lastname, Email = email, Company = company);
+            insert newleadrecord;
+            return newleadrecord;
+        }
+
+        public static void createAccountWithContact() {
+            // Create an Account
+            Account newAccount = new Account();
+            newAccount.Name = 'Retro Gam';
+            newAccount.Description = 'Game Accout';
+            insert newAccount;
+            // Create an contact
+            Contact newContact = new Contact();
+            newContact.FirstName = 'Ethe';
+            newContact.LastName = 'Hun';
+            newContact.Email = 'ethenht@retro.com';
+            
+            newContact.AccountId = newAccount.Id;
+    
+            insert newContact;
+            System.debug('created successfully!');
+        }
+
+        public static List<Lead> createLeadsInBulk(integer a) {
+            List<Lead> leadsToCreate = new List<Lead>();
+            
+            for(Integer i = 0; i < a; i++) {
+                Lead lead = new Lead(
+                    FirstName = 'Test', 
+                    LastName = 'Test'+i, 
+                    Company = '4i Apps' + i 
+                );
+                leadsToCreate.add(lead);
+            }
+            insert leadsToCreate;
+            return leadsToCreate;
+        }
+}

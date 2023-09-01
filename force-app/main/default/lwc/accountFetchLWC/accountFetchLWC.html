@@ -1,0 +1,7 @@
+<template>
+        <div class="account_Container">
+        <template for:each={accountList} for:item="accountFetch">
+            <lightning-button varient="brand" label={accountList.Name} onclick={handleClick} key={accountList.Id}></lightning-button>
+        </template>
+        </div>
+</template>
