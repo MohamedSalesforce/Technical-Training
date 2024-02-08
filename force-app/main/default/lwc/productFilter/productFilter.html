@@ -1,0 +1,34 @@
+<template>
+    <lightning-card title="Product Filter">
+        <div class="slds-p-around_medium">
+            <lightning-input label="Product Family" value={productFamily} onchange={handleInputChange}></lightning-input>
+            <lightning-button label="Search" variant="brand" onclick={searchProducts}></lightning-button>
+        </div>
+    </lightning-card>
+
+    <!-- Display filtered products -->
+    <template if:true={products}>
+        <lightning-card title="Filtered Products">
+            <ul class="slds-list_horizontal slds-wrap">
+                <template for:each={products} for:item="product">
+                    <lightning-layout multiple-rows="true" key={product.Id}>
+                        <lightning-layout-item padding="around-small" size="4">
+                            <lightning-formatted-rich-text 
+                                value={product.Product_Image__c}>
+                            </lightning-formatted-rich-text>
+                        </lightning-layout-item>
+                        <lightning-layout-item padding="around-small" size="4">
+                            <b>Product Name:</b> <b>{product.Name}</b>
+                        </lightning-layout-item>
+                        <lightning-layout-item padding="around-small" size="4">
+                            <b>Product Description:</b> <b>{product.Description}</b>
+                        </lightning-layout-item>
+                        <lightning-layout-item padding="around-small" size="4">
+                            <b>product Family:</b> <b>{product.Family}</b>
+                        </lightning-layout-item>
+                    </lightning-layout>    
+                </template>
+            </ul>
+        </lightning-card>
+    </template>
+</template>

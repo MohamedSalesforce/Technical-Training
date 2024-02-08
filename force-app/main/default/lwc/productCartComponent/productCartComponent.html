@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Product List">
+        <template for:each={products} for:item="product">
+            <lightning-layout multiple-rows="true" key={product.Id}>
+                <lightning-layout-item padding="around-small" size="4">
+                    <lightning-formatted-rich-text 
+                        value={product.Product_Image__c}>
+                    </lightning-formatted-rich-text>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="4">
+                    <b>Product Name:</b> <b>{product.Name}</b>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="4">
+                    <b>Product Description:</b> <b>{product.Description}</b>
+                </lightning-layout-item>
+            </lightning-layout>    
+        </template>    
+    </lightning-card>
+</template>

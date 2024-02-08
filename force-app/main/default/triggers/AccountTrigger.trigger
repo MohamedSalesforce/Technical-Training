@@ -1,14 +1,8 @@
-// trigger AccountTrigger on Account (after insert, after update) 
-// {
-//     // List <Account> accountToValidate = new List<Account>();
-//     // for(Account newAccount : Trigger.new)
-//     // {
-//     //     if(!newAccount.Bypass_Address_Validation__c==false)
-//     //     {
-//     //         System.enqueueJob(new ValidateAddressOnAccount(newAccount.Id));
-//     //     }
-//     // }
-// }
-trigger LeadConvertTrigger on Lead (before insert) {
-    DuplicateLeadQualifyPrevention.leadHandler(Trigger.new);
+trigger AccountTrigger on Account (before insert, after insert) {
+    // if(Trigger.isBefore && Trigger.isInsert){
+    //     AccountTriggerHandler.accountRating(Trigger.new);
+    // }
+    // else if(Trigger.isAfter && Trigger.isInsert){
+    //     AccountTriggerHandler.createRealtedOpp(Trigger.new);
+    // }
 }

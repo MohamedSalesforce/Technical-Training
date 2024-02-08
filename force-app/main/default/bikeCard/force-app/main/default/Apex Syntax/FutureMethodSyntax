@@ -1,0 +1,88 @@
+/* What is Future Method?
+   1) Future Apex runs processes in a seperate thread, at a later time when system resources become available.
+ * 2) Use @future annotation to create a future methods.
+ * 3) In Synchronous processing, all the method calls are made from the same thread and 
+no addinotnal processing can occur until the process is completed.
+ * 4) Whereas in future method, methods runs asynchronously in its own thread.
+ * 5) This unblocks users from performing other operations.
+ * 6) Provides higher governer & execution limits for processing.
+ * 
+ * When to Use Future Method?
+ * 1) Callouts to external Web Services.
+ * 2) Process that needs to executed in a separate or in their won thread.
+ * 3) Isolating DML Operations on different sObject types to prevent the mixed DML error.
+ * 
+ * 
+ 
+ */
+Syntax:
+global Class FutureMethodSyntax{
+    @future
+    public static void futureMethodName(List<Id> recordIds){
+        List<Account> accounts = [SELECT Id FROM Account WHERE Id IN :recordIds];
+        // Some Operations
+    }
+}
+
+Example : Getting the count of contacts in a account using future method
+public class AccountCalculator {
+	@future
+    public static void countOfContacts (List<Id> accIds){
+        List<Account> accList = [SELECT Id, (SELECT Id FROM Contacts)
+                                FROM Account WHERE Id IN : accIds];
+        
+        for(Account acc : accList){
+            acc.Number_of_Contacts__c = acc.Contacts.size();
+        }
+        
+        if(!accList.isEmpty()){
+            update accList;
+        }
+    }
+}
+
+
+Anonymous Execution:
+List<Account> accList = [SELECT Id FROM Account Limit 5];
+List<Id> accIds = new List<Id>();
+
+for (Account acc : accList){
+    accIds.add(acc.Id);
+}
+AccountCalculator.countOfContacts(accIds);
+
+Test Class:
+@isTest
+public class AccountCalculatorTest{
+    @isTest
+    public static void countContactsTest(){
+        List<Account> accList = new List<Account>();
+
+        for(Integer i=0; i<250; i++){
+            accList.add(new Account(Name='Test'+i));
+        }
+
+        insert accList;
+
+        List<Contact> conList = new List<Contact>();
+        List<Id> accIds = new List<Id>();
+
+        for(Account acc : accList){
+            Contact con = new Contact();
+            con.FirstName = 'test';
+            con.LastName = acc.Name;
+            con.AccountId = acc.Id;
+            //conList.add(new Contact(FirstName='Test' LastName=acc.Name AccountId=acc.Id));
+            
+            accIds.add(con.AccountId);
+        }
+
+        insert conList;
+
+        Test.startTest();
+        AccountCalculator.countOfContacts(accIds);
+        Test.stopTest();
+
+        List<Account> numberOfContacts = [SELECT Id, Number_of_Contacts__c FROM Account];
+    }
+}

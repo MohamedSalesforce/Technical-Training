@@ -1,0 +1,10 @@
+<apex:component controller="ProductCatelogToCustomer">
+    <apex:pageBlock title="Product List">
+        <apex:pageBlockTable value="{!products}" var="product">
+            <apex:column value="{!product.Name}" headerValue="Product Name"/>
+            <apex:column value="{!product.Description}" headerValue="Price"/>
+            <apex:column value="{!product.Product_Image__C}" headerValue="Price"/>
+           
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:component>

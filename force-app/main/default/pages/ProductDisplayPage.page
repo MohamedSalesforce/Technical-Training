@@ -1,0 +1,5 @@
+<apex:page controller="ProductCatelogToCustomer">
+    <apex:form>
+        <c:ProductDisplayComponent />
+    </apex:form>
+</apex:page>
