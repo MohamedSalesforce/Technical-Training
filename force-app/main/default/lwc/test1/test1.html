@@ -1,7 +1,107 @@
-<template>
-    <div>
-       <lightning-card>
-        This is demo
-       </lightning-card>
-    </div>
+<template> 
+    <div class="container">
+        <div class="slds-hide account">
+            <lightning-card
+                variant="narrow"
+                icon-name="standard:account"
+                title="Account title">
+                <p class="slds-m-around_medium">Account details</p>
+                <div slot="actions">
+                    <lightning-button-icon icon-name="utility:down" alternative-text="Show actions"></lightning-button-icon>
+                </div>
+                <lightning-button value="account" label="Close" onclick={close}></lightning-button>
+            </lightning-card>
+
+        </div>
+    </div>          
+            <div class="demo">
+                <lightning-card  variant="Narrow"  title="Demo Card" icon-name="standard:account">
+                    <lightning-button-icon  icon-name="utility:down" variant="border-filled" alternative-text="Show More" slot="actions"></lightning-button-icon>
+                    <p class="slds-p-horizontal_small">this is demo</p>
+                    <!-- <p slot="footer">Card Footer</p> -->
+                </lightning-card>
+             </div>
+             <div>
+                 <lightning-card>
+                    <div class="slds-m-top_medium slds-m-bottom_x-large">
+                        <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+                            Badges with custom <code>label</code> attribute values.
+                        </h2>
+                        <!-- Badge: basic -->
+                        <lightning-badge label="Chat" icon-name="standard:chat"></lightning-badge>
+                        <lightning-badge label="Email" icon-name ="standard:email"></lightning-badge>
+                        <lightning-badge label="Call" icon-name="standard:call"></lightning-badge>
+                    </div>
+                    <div>
+                        <lightning-barcode-scanner enable-continuous-scan>
+                        </lightning-barcode-scanner>
+                    </div>
+                    <lightning-avatar src="https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-Vector-PNG-File.png" size=Large></lightning-avatar>
+                    <div class="slds-m-around_medium">
+                        <h1 class="slds-text-heading_small">Basic accordion-section</h1>
+                        <p class="slds-text-body_regular">A lightning-accordion-section component is a single section that’s nested in a lightning-accordion component. You can't use this component on its own. This example creates a basic accordion with one section.</p>
+                    </div>
+                    <lightning-accordion active-section-name="A"> 
+                        <lightning-accordion name="A" label="Accordion Title A">
+                                <lightning-button-menu slot="actions" alternative-text="Show menu" icon-size="x-small" menu-alignment="auto">
+                                    <lightning-menu-item value="New" label="Menu Item One"></lightning-menu-item>
+                                    <lightning-menu-item value="Edit" label="Menu Item Two"></lightning-menu-item>
+                                </lightning-button-menu>
+                                <p>This is the content area for section A.</p>
+                                <p>.</p>
+                                <p>.</p>
+                                <p>.</p>
+                                <p>The section height expands to fit your content.</p>
+                        </lightning-accordion>
+                    </lightning-accordion>
+             </lightning-card>
+             </div>
+            
+             <div>
+                <lightning-button onclick={handleAlertClick} label="Open Alert Modal">
+                </lightning-button>
+             </div>
+             <div>
+                <lightning-breadcrumbs>
+                    <lightning-breadcrumb
+                        label="Account"
+                        href="path/to/place/1"
+                        onclick={handleNavigateToAccount}>
+                    </lightning-breadcrumb>
+                    <lightning-breadcrumb
+                        label="Case"
+                        href="path/to/place/2"
+                        onclick={handleNavigateToCase}>
+                    </lightning-breadcrumb>
+                </lightning-breadcrumbs>
+            
+                <div class="container">
+                    <div class="slds-hide account">
+                        <lightning-card
+                            variant="narrow"
+                            icon-name="standard:account"
+                            title="Account title">
+                            <p class="slds-m-around_medium">Account details</p>
+                            <div slot="actions">
+                                <lightning-button-icon icon-name="utility:down" alternative-text="Show actions"></lightning-button-icon>
+                            </div>
+                            <lightning-button value="account" label="Close" onclick={close}></lightning-button>
+                        </lightning-card>
+            
+                    </div>
+            
+                    <div class="slds-hide case">
+                        <lightning-card
+                            variant="narrow"
+                            icon-name="standard:case"
+                            title="Case title">
+                            <p class="slds-m-around_medium">Case details</p>
+                            <div slot="actions">
+                                <lightning-button-icon icon-name="utility:down" alternative-text="Show actions"></lightning-button-icon>
+                            </div>
+                            <lightning-button value="case" label="Close" onclick={close}></lightning-button>
+                        </lightning-card>
+                    </div>
+                </div>
+            </div>
 </template>
