@@ -1,0 +1,11 @@
+<template>
+    <lightning-card>
+        <div class="slds-p-around_medium lgc-bg">
+            <lightning-input type="number" label="Enter some Number" onchange={handleInput}></lightning-input>
+        </div><br>
+        <lightning-button variant="submit" label="Submit" title="Successful action" onclick={handleClick} class="slds-m-left_x-large"></lightning-button><br>
+       <template if:true={show}>
+        <c-slider-Child slidervalue={myValue} ></c-slider-Child>
+       </template>
+    </lightning-card>
+</template>

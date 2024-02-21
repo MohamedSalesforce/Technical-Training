@@ -28,9 +28,11 @@
                             Badges with custom <code>label</code> attribute values.
                         </h2>
                         <!-- Badge: basic -->
-                        <lightning-badge label="Chat" icon-name="standard:chat"></lightning-badge>
+                        <lightning-badge label="Account Name" icon-name="standard:account" icon-position="end"></lightning-badge>
                         <lightning-badge label="Email" icon-name ="standard:email"></lightning-badge>
                         <lightning-badge label="Call" icon-name="standard:call"></lightning-badge>
+                        <lightning-badge label="Approved" class="approved-badge"> </lightning-badge>
+                        <lightning-badge label="Pending" icon-name="standard:pending" class="pending-badge"> </lightning-badge>
                     </div>
                     <div>
                         <lightning-barcode-scanner enable-continuous-scan>
@@ -48,9 +50,6 @@
                                     <lightning-menu-item value="Edit" label="Menu Item Two"></lightning-menu-item>
                                 </lightning-button-menu>
                                 <p>This is the content area for section A.</p>
-                                <p>.</p>
-                                <p>.</p>
-                                <p>.</p>
                                 <p>The section height expands to fit your content.</p>
                         </lightning-accordion>
                     </lightning-accordion>

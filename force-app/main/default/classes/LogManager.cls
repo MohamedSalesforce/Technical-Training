@@ -1,4 +1,4 @@
-public interface LogManager
+deplopublic interface LogManager
 {
     void createLog();
 }
