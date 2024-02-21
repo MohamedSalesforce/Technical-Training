@@ -1,7 +1,6 @@
 public with sharing class CallingJoke {
-    public CallingJoke() 
-    {
-    }
+    
+    @AuraEnabled
     public static String getJoke()
     {
         HttpRequest req = new HttpRequest();
