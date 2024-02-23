@@ -1,9 +1,5 @@
 trigger AccountTrigger1 on Account (before insert, before update, after insert) {
-    // switch on operationType{
-    //     when BEFORE_INSERT{
-    //         AccountHandler.ratingUpdate(Trigger.new);
-    //     }
-    // }
+
     if(Trigger.isInsert){
         if(Trigger.isBefore){
             AccountHandler.ratingUpdate(Trigger.new);
@@ -29,4 +25,11 @@ trigger AccountTrigger1 on Account (before insert, before update, after insert) 
             AccountHandler.createRelatedOpportunityForAccount(Trigger.new);
         }
     }
+    
+    // description : *** update the trigger event above the trigger area ***
+    // if(Trigger.isDelete){
+    //     if(Trigger.isBefore){
+    //         AccountHandler.preventDeletionOfAccount(Trigger.old);
+    //     }
+    // }
 }

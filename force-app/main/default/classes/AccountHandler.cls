@@ -39,4 +39,25 @@ public with sharing class AccountHandler {
         }
         insert opportunityToBeInserted;
     }
+
+    public static void preventDeletionOfAccount(List<Account> listOfAccount){
+        List<Account> accDelPrevention = new List<Account>();
+        List<Account> notToDelete = new List<Account>();
+        for (Account acc : listOfAccount){
+            if(acc.ParentId == null)
+            {
+                accDelPrevention.add(acc);
+            }
+            else if(acc.ParentId != null)
+            {
+                notToDelete.add(acc);
+            }
+        }
+        try {
+            delete accDelPrevention;
+            System.debug('Accounts Deleted : ' + accDelPrevention);
+        } catch (Exception e) {
+         System.debug('This account contain parent id'+ e.getMessage()+notToDelete);  
+        }
+    }
 }
